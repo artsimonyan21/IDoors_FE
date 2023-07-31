@@ -1,0 +1,27 @@
+.header_wrapper {
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 92px;
+  background-color: orangered;
+  .header_logo {
+    display: flex;
+    align-items: center;
+    padding-top: 24px;
+  }
+
+  .header_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .header_search_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 28px;
+  }
+}
