@@ -15,6 +15,21 @@
     justify-content: center;
     align-items: center;
     gap: 60px;
+
+    .active {
+      color: #33638e;
+    }
+
+    a {
+      color: #000;
+      font-family: Bokonique;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
   }
 
   .header_search_wrapper {

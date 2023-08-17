@@ -1,7 +1,18 @@
 import "./products.scss";
 import LineIcon from "../../assets/images/arrow.png";
-import DoorItem from "../../components/DoorItem";
+
+// import FirstArrangement from "./components/FirstArrangement";
+import SecondArrangement from "./components/SecondArrangement";
+// import { useState } from "react";
+
 const Products = () => {
+  // const [changeArrangement, setChangeArrangement] = useState({
+  //   firstArrangement: true,
+  //   secondArrangement: false,
+  // });
+
+  // const handleChangeArrangement = () => {};
+
   return (
     <div className="products_wrapper">
       <div className="category_change_wrapper">
@@ -17,17 +28,10 @@ const Products = () => {
         </button>
       </div>
       <div className="products_wrapper_content">
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
-        <DoorItem />
+        <div></div>
+
+        {/* <FirstArrangement /> */}
+        <SecondArrangement />
       </div>
     </div>
   );
