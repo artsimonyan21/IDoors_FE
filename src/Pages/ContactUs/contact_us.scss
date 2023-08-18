@@ -1,0 +1,76 @@
+.contact_us_wrapper {
+  width: 100%;
+  height: fit-content;
+  padding: 0 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .select_info_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding-bottom: 16px;
+
+    h3 {
+      color: #33638e;
+      font-family: EZO-NA;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 3.807px;
+    }
+
+    .line {
+      height: 434px;
+      border-right: 1px solid #bfb7b7;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      //   border-right: 1px solid #bfb7b7;
+
+      input {
+        width: 300px;
+        padding: 12px 12px;
+        align-items: center;
+        gap: 26px;
+        border: none;
+      }
+
+      textarea {
+        width: 300px;
+        height: 150px;
+        border: none;
+        resize: none;
+        padding: 12px 12px;
+      }
+
+      button {
+        width: 300px;
+        padding: 0 12px;
+        height: 42px;
+        flex-shrink: 0;
+        background: #33638e;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: none;
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        color: #fff;
+        font-family: Bokonique;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

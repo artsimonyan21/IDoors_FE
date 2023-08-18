@@ -1,17 +1,21 @@
 import "./products.scss";
 import LineIcon from "../../assets/images/arrow.png";
 
-// import FirstArrangement from "./components/FirstArrangement";
+import FirstArrangement from "./components/FirstArrangement";
 import SecondArrangement from "./components/SecondArrangement";
-// import { useState } from "react";
+import { NavLink, useSearchParams } from "react-router-dom";
+
+const components = {
+  first_arrangement: FirstArrangement,
+  second_arrangement: SecondArrangement,
+};
 
 const Products = () => {
-  // const [changeArrangement, setChangeArrangement] = useState({
-  //   firstArrangement: true,
-  //   secondArrangement: false,
-  // });
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type") as keyof typeof components;
 
-  // const handleChangeArrangement = () => {};
+  console.log("disukfiudhfiuhf", type);
+  const Component = components[type];
 
   return (
     <div className="products_wrapper">
@@ -28,10 +32,12 @@ const Products = () => {
         </button>
       </div>
       <div className="products_wrapper_content">
-        <div></div>
+        <div>
+          <NavLink to="/products?type=first_arrangement"></NavLink>
+          <NavLink to="/products?type=first_arrangement"></NavLink>
+        </div>
 
-        {/* <FirstArrangement /> */}
-        <SecondArrangement />
+        <Component />
       </div>
     </div>
   );

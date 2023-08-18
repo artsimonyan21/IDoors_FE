@@ -1,5 +1,5 @@
 import "./header.scss";
-// import Logo from "../../../../../assets/img/logo.svg";
+// import Logo from "../../../assets/images/logo.svg";
 // import SearchIcon from "../../../../../assets/img/search.svg";
 
 import { NavLink } from "react-router-dom";
@@ -22,13 +22,13 @@ const Header = () => {
           Մեր մասին
         </NavLink>
         <NavLink
-          to="/products"
+          to="/products?type=first_arrangement"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           ՏԵՍականի
         </NavLink>
         <NavLink
-          to="/"
+          to="/contact"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           ՀԵՏԱԴԱՐՁ ԿԱՊ
