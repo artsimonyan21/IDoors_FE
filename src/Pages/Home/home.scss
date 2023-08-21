@@ -6,7 +6,17 @@
   .home_swiper_wraper {
     width: 100%;
     height: 460px;
-    background-color: orange;
+    // background-color: orange;
+  }
+
+  .swiper-wrapper {
+    height: 82% !important;
+  }
+
+  .swiper_adverstising_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .new_range_wrapper {
