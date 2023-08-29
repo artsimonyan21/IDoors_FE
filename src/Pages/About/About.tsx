@@ -1,11 +1,8 @@
-import AboutCard from "./Components/AboutCard";
-import "./about.scss";
+import AboutCard from "./components/about-card";
 
 const About = () => {
   return (
-    <div className="about_wrapper">
-      <AboutCard />
-      <AboutCard />
+    <div className=" w-full h-full p-10 lg:pt-10 pt-[102px]">
       <AboutCard />
     </div>
   );
