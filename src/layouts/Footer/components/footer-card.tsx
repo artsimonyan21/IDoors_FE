@@ -10,7 +10,7 @@ interface FooterCardProps {
 const FooterCard: React.FC<FooterCardProps> = ({ title, children, className }) => {
   return (
     <div className={cn(" flex items-start flex-col gap-4", className || "")}>
-      <h3 className=" text-xl text-black">{title}</h3>
+      <h3 className=" xs:text-xl text-lg text-black">{title}</h3>
       {children}
     </div>
   );

@@ -15,7 +15,9 @@ const Footer: React.FC = () => {
           <ul className=" flex items-start flex-col gap-1 uppercase">
             {footerLinks?.links?.map((link, index: number) => (
               <li key={index}>
-                <Link to={link?.route}>{link?.pathname}</Link>
+                <Link to={link?.route} className=" xs:text-base text-sm">
+                  {link?.pathname}
+                </Link>
               </li>
             ))}
           </ul>
@@ -25,7 +27,7 @@ const Footer: React.FC = () => {
             {footerLinks?.contacts?.map((contact, index: number) => (
               <li key={index} className=" flex items-center justify-center gap-1">
                 <img src={contact?.icon} alt={contact?.name} />
-                <p>{contact?.title}</p>
+                <p className=" xs:text-base text-sm">{contact?.title}</p>
               </li>
             ))}
           </ul>

@@ -11,21 +11,41 @@ const Dropdown = () => {
   useHideScroll(isDropdownOpen);
 
   return (
-    <div className={` relative`}>
+    <div className={` w-fit`}>
       <button
-        className={`${isDropdownOpen ? "pointer-events-none" : "pointer-events-auto"}`}
+        className={`${
+          isDropdownOpen ? "pointer-events-none" : "pointer-events-auto"
+        } flex items-center gap-x-2`}
         onClick={handleToggleDropdown}
       >
-        <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" />
+        <div className=" w-8">
+          <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" />
+        </div>
+        <span>AM</span>
       </button>
       <ul
         ref={dropdwonRef}
-        className={` absolute flex items-center justify-center ${
-          isDropdownOpen ? "block" : "hidden"
-        } top-16 -left-8 p-4 bg-light-1 shadow-md z-50`}
+        className={`  absolute items-center flex-col gap-y-4 ${
+          isDropdownOpen ? "flex" : "hidden"
+        } top-[100px] right-2 p-4 bg-light-1 shadow-md z-50`}
       >
-        <li className=" cursor-pointer flex items-center gap-2">
-          <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" className=" w-10" />
+        <li className=" w-full cursor-pointer flex items-center gap-2">
+          <div className=" w-8">
+            <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" />
+          </div>
+          <span className=" text-sm">AM</span>
+        </li>
+        <li className=" w-full cursor-pointer flex items-center gap-2">
+          <div className=" w-8">
+            <img src="/src/assets/icons/eng-flag-icon.svg" alt="england flag" />
+          </div>
+          <span className=" text-sm">EN</span>
+        </li>
+        <li className=" w-full cursor-pointer flex items-center gap-2">
+          <div className=" w-8">
+            <img src="/src/assets/icons/rus-flag-icon.svg" alt="russian flag" />
+          </div>
+          <span className=" text-sm">RU</span>
         </li>
       </ul>
     </div>
