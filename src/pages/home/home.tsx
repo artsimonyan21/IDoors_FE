@@ -19,7 +19,7 @@ const Home = () => {
       >
         <Searchbar />
       </section>
-      <section className=" w-full h-[60vh] px-10">
+      <section className=" w-full md:h-[60vh] px-10">
         <section className=" w-full h-full md:block hidden">
           <SwiperAdverstising />
         </section>

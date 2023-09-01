@@ -1,4 +1,4 @@
-import Loading from "@/components/loading";
+import Loading from "@/components/ui/loading";
 import { Suspense } from "react";
 import Router from "./Router";
 

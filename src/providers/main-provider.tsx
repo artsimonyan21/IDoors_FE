@@ -1,4 +1,3 @@
-import BannerSlideEditModal from "@/admin/components/modals/banner-slide-edit-modal";
 import Searchbar from "@/components/searchbar";
 import Overlay from "@/components/ui/overlay";
 import { ReactNode, createContext, useContext, useState } from "react";
@@ -10,6 +9,7 @@ interface MainContextProps {
   isAdminModalOpen: boolean;
   isAdminSidebarOpen: boolean;
   isSearchbarOpen: boolean;
+  isAdminAddModalOpen: boolean;
   handleToggleMenu: () => void;
   handleCloseMenu: () => void;
   handleToggleDropdown: () => void;
@@ -19,8 +19,10 @@ interface MainContextProps {
   handleCloseAdminModal: () => void;
   handleToggleAdminSidebar: () => void;
   handleCloseAdminSidebar: () => void;
-  handleToggleSearchbar: () => void;
+  handleOpenSearchbar: () => void;
   handleCloseSearchbar: () => void;
+  handleOpenAdminAddModal: () => void;
+  handleCloseAdminAddModal: () => void;
 }
 
 const MainContext = createContext<MainContextProps>(null!);
@@ -31,11 +33,16 @@ const MainProvider = ({ children }: { children: ReactNode }) => {
   const [isAdminSidebarOpen, setIsAdminSidebarOpen] = useState<boolean>(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState<boolean>(false);
   const [isSearchbarOpen, setIsSearchbarOpen] = useState<boolean>(false);
+  const [isAdminAddModalOpen, setIsAdminAddModalOpen] =
+    useState<boolean>(false);
 
-  const handleToggleAdminSidebar = () => setIsAdminSidebarOpen(prev => !prev);
+  const handleOpenAdminAddModal = () => setIsAdminAddModalOpen(true);
+  const handleCloseAdminAddModal = () => setIsAdminAddModalOpen(false);
+
+  const handleToggleAdminSidebar = () => setIsAdminSidebarOpen((prev) => !prev);
   const handleCloseAdminSidebar = () => setIsAdminSidebarOpen(false);
 
-  const handleToggleSearchbar = () => setIsSearchbarOpen(prev => !prev);
+  const handleOpenSearchbar = () => setIsSearchbarOpen(true);
   const handleCloseSearchbar = () => setIsSearchbarOpen(false);
 
   const handleOpenAdminModal = () => setIsAdminModalOpen(true);
@@ -47,10 +54,10 @@ const MainProvider = ({ children }: { children: ReactNode }) => {
     navigate(`/products/2`);
   };
 
-  const handleToggleDropdown = () => setIsDropdownOpen(prev => !prev);
+  const handleToggleDropdown = () => setIsDropdownOpen((prev) => !prev);
   const handleCloseDropdown = () => setIsDropdownOpen(false);
 
-  const handleToggleMenu = () => setIsMenuOpen(prev => !prev);
+  const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
   const handleCloseMenu = () => setIsMenuOpen(false);
 
   const values: MainContextProps = {
@@ -59,6 +66,7 @@ const MainProvider = ({ children }: { children: ReactNode }) => {
     isAdminModalOpen,
     isAdminSidebarOpen,
     isSearchbarOpen,
+    isAdminAddModalOpen,
     handleCloseMenu,
     handleToggleMenu,
     handleToggleDropdown,
@@ -68,8 +76,10 @@ const MainProvider = ({ children }: { children: ReactNode }) => {
     handleCloseAdminModal,
     handleToggleAdminSidebar,
     handleCloseAdminSidebar,
-    handleToggleSearchbar,
-    handleCloseSearchbar
+    handleOpenSearchbar,
+    handleCloseSearchbar,
+    handleOpenAdminAddModal,
+    handleCloseAdminAddModal,
   };
 
   return (
@@ -79,28 +89,31 @@ const MainProvider = ({ children }: { children: ReactNode }) => {
           <Overlay />
         </div>
       ) : null}
-      {isAdminSidebarOpen || isAdminModalOpen || isDropdownOpen ? (
+      {isAdminSidebarOpen ||
+      isAdminModalOpen ||
+      isAdminAddModalOpen ||
+      isDropdownOpen ? (
         <div className=" w-full h-full">
           <Overlay />
         </div>
       ) : null}
 
       {isSearchbarOpen ? (
-        <section className=" w-full h-full hidden md:flex items-center justify-center absolute">
-          <Searchbar />
-        </section>
+        <>
+          <section className=" w-full h-full hidden md:flex items-center justify-center fixed z-[100]">
+            <Searchbar />
+          </section>
+          <div className=" w-full h-full md:flex hidden">
+            <Overlay />
+          </div>
+        </>
       ) : null}
-      {isSearchbarOpen ? (
-        <section className=" w-full h-full hidden md:flex items-center justify-center absolute">
-          <Overlay />
-        </section>
-      ) : null}
-      {isAdminModalOpen ? <BannerSlideEditModal /> : null}
       {children}
     </MainContext.Provider>
   );
 };
 
-export const useMainContext = (): MainContextProps => useContext<MainContextProps>(MainContext);
+export const useMainContext = (): MainContextProps =>
+  useContext<MainContextProps>(MainContext);
 
 export default MainProvider;

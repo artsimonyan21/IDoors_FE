@@ -1,14 +1,11 @@
-// import "./swiper_show_items.scss";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import NewRange from "./new-range";
+import { products } from "@/constants/contsants";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-import NewRange from "./new-range";
-import { products } from "@/constants/contsants";
 
 const SwiperShowItems = () => {
   return (
@@ -17,12 +14,8 @@ const SwiperShowItems = () => {
         spaceBetween={24}
         slidesPerView={4}
         className=" w-full h-full"
-        navigation={{
-          nextEl: ".swiper_button_next",
-          prevEl: ".swiper_button_prev",
-          disabledClass: "swiper_button_disabled"
-        }}
-        modules={[Navigation, Pagination]}
+        navigation={true}
+        modules={[Pagination, Navigation]}
       >
         {products?.map((product, index: number) => (
           <SwiperSlide key={index} className="  my-32">

@@ -1,19 +1,21 @@
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 const Pagination = () => {
   return (
-    <div className=" flex items-center justify-center flex-wrap gap-4">
-      <button className=" w-20 h-10 flex items-center justify-center bg-blue-1 text-white">
-        {"<<"}
+    <div className=" flex items-center justify-center flex-wrap gap-x-6">
+      <button className=" flex items-center justify-center text-black text-xl">
+        <IoIosArrowBack />
       </button>
       {[...Array(6).keys()].map((_, index: number) => (
         <button
           key={index}
-          className=" w-10 h-10 flex items-center justify-center bg-blue-1 text-white"
+          className=" flex items-center justify-center text-black text-xl"
         >
           {index + 1}
         </button>
       ))}
-      <button className=" w-20 h-10 flex items-center justify-center bg-blue-1 text-white">
-        {">>"}
+      <button className=" flex items-center justify-center text-black text-xl">
+        <IoIosArrowForward />
       </button>
     </div>
   );

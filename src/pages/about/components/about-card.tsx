@@ -1,7 +1,5 @@
-import Arrow from "../../../assets/images/arrow.png";
-
-import door from "../../../assets/images/doorRange.png";
 import Button from "@/components/ui/button";
+import door from "../../../assets/images/doorRange.png";
 
 const AboutCard = () => {
   return (
@@ -13,9 +11,10 @@ const AboutCard = () => {
               Մեր մասին
             </h2>
             <p className=" md:text-base xs:text-sm text-xs">
-              iDoors Armenia-ն դռների արտադրությամբ զբաղվող ընկերություն է: Մենք առաջարկում ենք
-              նմանը չունեցող դիզայնով և ամրությամբ մուտքի և միջսենյակային դռների մեծ տեսականի: Մեր
-              պրոֆեսիոնալ մասնագետները կօգնեն ձեզ դռների չափագրման, տեղադրման և դիզայնի հարցում։
+              iDoors Armenia-ն դռների արտադրությամբ զբաղվող ընկերություն է: Մենք
+              առաջարկում ենք նմանը չունեցող դիզայնով և ամրությամբ մուտքի և
+              միջսենյակային դռների մեծ տեսականի: Մեր պրոֆեսիոնալ մասնագետները
+              կօգնեն ձեզ դռների չափագրման, տեղադրման և դիզայնի հարցում։
               Ընդունվում են պատվերներ․ սիրով կսպասենք ձեզ։
             </p>
           </div>
@@ -25,7 +24,11 @@ const AboutCard = () => {
         </div>
       </div>
       <div className=" h-[70%] bg-blue-1 flex items-center justify-center aspect-square relative">
-        <img src={door} alt="" className=" w-1/2 absolute lg:left-12 left-1/4" />
+        <img
+          src={door}
+          alt=""
+          className=" w-1/2 absolute lg:left-12 left-1/4"
+        />
         {/* <div></div> */}
       </div>
     </section>

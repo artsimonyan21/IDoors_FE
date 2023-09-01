@@ -1,53 +1,52 @@
+import { useMainContext } from "@/providers/main-provider";
+import AdminProductBox from "../components/boxes/admin-product-box";
+import AdminModal from "../components/modals/admin-modal";
+import AdminProductsModalForm from "../components/modals/modal-forms/admin-products-modal-form";
+import PageTitle from "../components/page-title";
+
 const AdminProducts = () => {
+  const {
+    isAdminModalOpen,
+    handleCloseAdminModal,
+    isAdminAddModalOpen,
+    handleCloseAdminAddModal,
+    handleOpenAdminAddModal,
+  } = useMainContext();
   return (
-    <section className=" p-10 pt-0 flex items-center flex-col">
-      <header>
-        <h2>տեսականի</h2>
-      </header>
-      <form className=" w-full md:sticky flex items-center flex-wrap gap-4 top-10 py-4 z-30 bg-light-1">
-        <div className=" flex grow h-12">
-          <input
-            type="text"
-            className=" w-full shadow-md px-4 placeholder:uppercase text-gray-1 rounded-sm"
-            placeholder="Անուն"
-          />
-        </div>
-        <div className=" flex grow h-12">
-          <input
-            type="text"
-            className=" w-full shadow-md px-4 placeholder:uppercase text-gray-1 rounded-sm"
-            placeholder="Նկարագրություն"
-          />
-        </div>
-        <div className=" flex grow h-12">
-          <select
-            name=""
-            id=""
-            className=" w-full shadow-md px-4 text-black rounded-sm cursor-pointer"
+    <>
+      {isAdminModalOpen ? (
+        <AdminModal
+          title="Խմբագրել"
+          body={<AdminProductsModalForm />}
+          onClose={handleCloseAdminModal}
+        />
+      ) : null}
+      {isAdminAddModalOpen ? (
+        <AdminModal
+          title="Ավելացնել"
+          body={<AdminProductsModalForm />}
+          onClose={handleCloseAdminAddModal}
+        />
+      ) : null}
+      <section className=" p-10 pt-0 flex items-center flex-col">
+        <header className=" my-10">
+          <PageTitle>տեսականի</PageTitle>
+        </header>
+        <div className=" w-full md:sticky top-10 py-4 z-30 bg-light-1">
+          <button
+            className=" w-full h-12 bg-yellow-500 text-white px-4"
+            onClick={handleOpenAdminAddModal}
           >
-            <optgroup>
-              <option value="">Option 1</option>
-              <option value="">Option 2</option>
-              <option value="">Option 3</option>
-            </optgroup>
-          </select>
+            Ավելացնել
+          </button>
         </div>
-        <div className=" flex grow h-12">
-          <input
-            type="file"
-            className=" w-full shadow-md px-4 placeholder:uppercase text-gray-1 rounded-sm"
-          />
+        <div className=" w-full grid md:grid-cols-2 gap-4">
+          {[...Array(9).keys()].map((_, index: number) => (
+            <AdminProductBox key={index} />
+          ))}
         </div>
-        <div className=" flex grow h-12">
-          <button className=" w-full bg-yellow-500 text-white px-4 h-full">Ավելացնել</button>
-        </div>
-      </form>
-      {/* <div className=" w-full grid grid-cols-2 gap-4">
-        {[...Array(9).keys()].map((_, index: number) => (
-          <BannerSlideBox key={index} />
-        ))}
-      </div> */}
-    </section>
+      </section>
+    </>
   );
 };
 

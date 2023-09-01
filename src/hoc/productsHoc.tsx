@@ -1,12 +1,10 @@
 import FirstArrangement from "@/pages/products/components/first-arrangement";
 import SecondArrangement from "@/pages/products/components/second-arrangement";
-import { useMainContext } from "@/providers/main-provider";
 import React, { ReactNode, useEffect, useState } from "react";
 
 interface ProductsProps {
   selectedComponent: JSX.Element | React.ReactNode;
   handleSelectComponent: (componentType: string) => void;
-  isSearchbarOpen: boolean;
 }
 
 const productsHoc = (Component: React.FC<ProductsProps>) => {
@@ -18,23 +16,22 @@ const productsHoc = (Component: React.FC<ProductsProps>) => {
   const components: ComponentsProps[] = [
     {
       type: "first-arrangement",
-      component: FirstArrangement
+      component: FirstArrangement,
     },
     {
       type: "second-arrangement",
-      component: SecondArrangement
-    }
+      component: SecondArrangement,
+    },
   ];
 
   return () => {
-    const { isSearchbarOpen } = useMainContext();
     const [localStorageItem, setLocalStorageItem] = useState<string>(
       () => localStorage.getItem("type") || "first-arrangement"
     );
     const [type, setType] = useState<string>(localStorageItem);
-    const [selectedComponent, setSelectedComponent] = useState<JSX.Element | ReactNode | null>(
-      null
-    );
+    const [selectedComponent, setSelectedComponent] = useState<
+      JSX.Element | ReactNode | null
+    >(null);
 
     const handleSelectComponent = (componentType: string) => {
       localStorage.setItem("type", componentType);
@@ -51,7 +48,9 @@ const productsHoc = (Component: React.FC<ProductsProps>) => {
     }, []);
 
     useEffect(() => {
-      const selected = components?.find(item => (item?.type === type ? item?.component : null));
+      const selected = components?.find((item) =>
+        item?.type === type ? item?.component : null
+      );
       setSelectedComponent(selected?.component || null);
     }, [type]);
 
@@ -59,7 +58,6 @@ const productsHoc = (Component: React.FC<ProductsProps>) => {
       <Component
         selectedComponent={selectedComponent}
         handleSelectComponent={handleSelectComponent}
-        isSearchbarOpen={isSearchbarOpen}
       />
     );
   };

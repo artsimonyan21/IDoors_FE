@@ -7,7 +7,9 @@ import MainLayout from "./layouts/main-layout";
 const Home = lazy(() => import("./pages/home/home"));
 const About = lazy(() => import("./pages/about/about"));
 const Products = lazy(() => import("./pages/products/products"));
-const SingleProduct = lazy(() => import("./pages/single-product/single-product"));
+const SingleProduct = lazy(
+  () => import("./pages/single-product/single-product")
+);
 const ContactUs = lazy(() => import("./pages/contact-us/contact-us"));
 const NotFound = lazy(() => import("./pages/not-found/not-found"));
 const Admin = lazy(() => import("./admin/admin"));
@@ -21,26 +23,26 @@ const AdminAbout = lazy(() => import("./admin/pages/admin-about"));
 const Router = () => {
   return (
     <Routes>
-      <Route element={<MainLayout />}>
-        <Route element={<Home />} index />
-        <Route element={<About />} path="/about" />
-        <Route element={<Products />} path="/products" />
-        <Route element={<SingleProduct />} path="/products/:id" />
-        <Route element={<ContactUs />} path="/contact" />
-        <Route element={<NotFound />} path="*" />
+      <Route Component={MainLayout}>
+        <Route Component={Home} index />
+        <Route Component={About} path="/about" />
+        <Route Component={Products} path="/products" />
+        <Route Component={SingleProduct} path="/products/:id" />
+        <Route Component={ContactUs} path="/contact" />
+        <Route Component={NotFound} path="*" />
       </Route>
       {/* //* ADMIN  */}
-      <Route element={<AdminLayout />}>
-        <Route element={<AdminSidebarLayout />}>
-          <Route element={<Admin />} path="/admin" />
-          <Route element={<BannerSlide />} path="/admin/banner-slide" />
-          <Route element={<AdminAbout />} path="/admin/about" />
-          <Route element={<AdminProducts />} path="/admin/products" />
-          <Route element={<AdminFooter />} path="/admin/footer-info" />
+      <Route Component={AdminLayout}>
+        <Route Component={AdminSidebarLayout}>
+          <Route Component={Admin} path="/admin" />
+          <Route Component={BannerSlide} path="/admin/banner-slide" />
+          <Route Component={AdminAbout} path="/admin/about" />
+          <Route Component={AdminProducts} path="/admin/products" />
+          <Route Component={AdminFooter} path="/admin/footer-info" />
         </Route>
-        <Route element={<Register />} path="/admin/register" />
+        <Route Component={Register} path="/admin/register" />
       </Route>
-      <Route element={<Login />} path="/admin/login" />
+      <Route Component={Login} path="/admin/login" />
     </Routes>
   );
 };

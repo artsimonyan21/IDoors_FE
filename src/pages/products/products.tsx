@@ -1,24 +1,18 @@
 import Pagination from "@/components/pagination";
 import RecomendedDoors from "@/components/recomended-doors";
-import Searchbar from "@/components/searchbar";
 import Button from "@/components/ui/button";
 import { productsLayoutLinks } from "@/constants/contsants";
 import productsHoc from "@/hoc/productsHoc";
 import { memo } from "react";
 
-const Products = productsHoc(({ selectedComponent, handleSelectComponent, isSearchbarOpen }) => (
+const Products = productsHoc(({ selectedComponent, handleSelectComponent }) => (
   <section className=" w-full h-full flex items-center flex-col pt-[112px] px-10 pb-20">
-    <section
-      className={` ${
-        isSearchbarOpen ? "md:flex" : "hidden"
-      } w-full h-full justify-center px-10 md:my-10 sm:mb-10 mt-8 mb-20`}
-    >
-      <Searchbar />
-    </section>
     <div className=" w-full grid md:grid-cols-[1fr_3fr] gap-10 mb-10">
       <div className=" w-full md:pb-24">
         <div className=" sticky top-[120px] bottom-80 w-full flex items-start flex-col gap-4">
-          <h3 className=" font-[EZO-NA] text-7xl text-blue-1 tracking-wider">ՏԵՍականի</h3>
+          <h3 className=" font-[EZO-NA] text-7xl text-blue-1 tracking-wider">
+            ՏԵՍականի
+          </h3>
           <Button className=" w-full" icon={true}>
             Մետաղական դռներ
           </Button>
@@ -38,7 +32,9 @@ const Products = productsHoc(({ selectedComponent, handleSelectComponent, isSear
                 key={index}
                 onClick={() => handleSelectComponent(link?.value)}
                 className={` ${
-                  localStorage.getItem("type") === link?.value ? "text-blue-1" : "text-gray-1"
+                  localStorage.getItem("type") === link?.value
+                    ? "text-blue-1"
+                    : "text-gray-1"
                 } text-3xl cursor-pointer`}
               >
                 <link.icon />

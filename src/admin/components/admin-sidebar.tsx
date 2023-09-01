@@ -14,7 +14,7 @@ const AdminSidebar = () => {
   return (
     <div
       ref={sidebarRef}
-      className={` w-fit h-screen fixed top-10 left-0 p-4 ${
+      className={` w-80 h-screen fixed top-10 left-0 p-4 ${
         isAdminSidebarOpen ? "left-0" : " left-[-100%]"
       } bg-light-1 z-50 transition-all duration-300`}
     >
@@ -24,7 +24,9 @@ const AdminSidebar = () => {
             <NavLink
               to={link?.route}
               className={`${
-                link?.route !== "/admin" && pathname === link?.route ? "active" : " text-black"
+                link?.route !== "/admin" && pathname === link?.route
+                  ? "active"
+                  : " text-black"
               }`}
               onClick={handleCloseAdminSidebar}
             >

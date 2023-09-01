@@ -11,7 +11,13 @@ import { NavLink } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 
 const Navbar = () => {
-  const { isMenuOpen, handleCloseMenu, handleToggleMenu, handleToggleSearchbar } = useMainContext();
+  const {
+    isMenuOpen,
+    handleCloseMenu,
+    handleToggleMenu,
+    handleOpenSearchbar,
+    isSearchbarOpen,
+  } = useMainContext();
   const menuRef = useRef<HTMLUListElement | null>(null);
 
   useClickOutside(menuRef, handleCloseMenu);
@@ -28,7 +34,7 @@ const Navbar = () => {
           "md:w-fit md:h-fit flex md:items-center md:justify-center md:flex-row gap-4 md:p-0",
           `${
             isMenuOpen ? "right-0" : "right-[-100%]"
-          } absolute md:static top-[92px] h-screen xxs:w-80 w-full flex-col items-start bg-light-1 transition-all duration-300 p-4`
+          } absolute md:static top-[92px] h-screen xs:w-80 w-full flex-col items-start bg-light-1 transition-all duration-300 p-4`
         )}
       >
         {links?.map((link, index: number) => (
@@ -47,8 +53,10 @@ const Navbar = () => {
         {/* <SearchIcon /> */}
         <Dropdown />
         <button
-          className=" hidden md:flex items-center justify-center text-3xl"
-          onClick={handleToggleSearchbar}
+          className={` ${
+            isSearchbarOpen ? "pointer-events-none" : "pointer-events-auto"
+          } hidden md:flex items-center justify-center text-3xl`}
+          onClick={handleOpenSearchbar}
         >
           <IoIosSearch />
         </button>
@@ -58,7 +66,12 @@ const Navbar = () => {
             `${isMenuOpen ? "pointer-events-none" : "pointer-events-auto"}`
           )}
         >
-          <Hamburger toggled={isMenuOpen} onToggle={handleToggleMenu} size={28} color="black" />
+          <Hamburger
+            toggled={isMenuOpen}
+            onToggle={handleToggleMenu}
+            size={28}
+            color="black"
+          />
         </button>
       </div>
     </nav>

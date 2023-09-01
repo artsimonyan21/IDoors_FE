@@ -12,17 +12,27 @@ const SwiperAdverstising = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Swiper navigation={true} modules={[Pagination, Navigation]} className=" w-full h-full">
+      <Swiper
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className=" w-full h-full"
+      >
         <SwiperSlide>
           <div className=" w-full h-full grid lg:grid-cols-[1.5fr_1fr] grid-cols-2 items-center md:gap-x-10 gap-x-5 bg-light-1">
-            <div className=" w-full md:h-[90%] h-[80%] flex items-start justify-between flex-col md:bg-white md:pl-20 pr-5 sm:pl-10 px-5 pt-16 pb-20">
+            <div className=" w-full md:h-[90%] h-[80%] flex items-start justify-between flex-col md:bg-white md:pl-16 pr-5 sm:pl-10 px-5 pt-16 pb-20">
               <div className=" flex items-start flex-col gap-6">
                 <h2 className=" lg:text-7xl md:text-5xl text-blue-1 font-[EZO-NA] tracking-wider">
                   ԴՌՆԵՐԻ ԼԱՅՆ ԸՆՏՐԱՆԻ
                 </h2>
-                <p className=" text-sm">Միայն որակյալ տեսականի հենց Ձեզ համար</p>
+                <p className=" text-sm">
+                  Միայն որակյալ տեսականի հենց Ձեզ համար
+                </p>
               </div>
-              <Button className=" w-1/2 mt-14" icon onClick={() => navigate("/products")}>
+              <Button
+                className=" w-1/2 mt-14"
+                icon
+                onClick={() => navigate("/products")}
+              >
                 ՏԵՍականի
               </Button>
             </div>
@@ -40,7 +50,9 @@ const SwiperAdverstising = () => {
                 <h2 className=" lg:text-7xl md:text-5xl text-blue-1 font-[EZO-NA] tracking-wider">
                   ԴՌՆԵՐԻ ԼԱՅՆ ԸՆՏՐԱՆԻ
                 </h2>
-                <p className=" text-sm">Միայն որակյալ տեսականի հենց Ձեզ համար</p>
+                <p className=" text-sm">
+                  Միայն որակյալ տեսականի հենց Ձեզ համար
+                </p>
               </div>
               <Button className=" w-1/2 mt-14" icon>
                 ՏԵՍականի
