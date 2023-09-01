@@ -24,7 +24,7 @@ const SwiperShowItems = () => {
         ))}
         {/* <button className="swiper_button_prev swiper_button_base">
           <PrevIcon />
-        </button>
+        </button> 
         <button className="swiper_button_next swiper_button_base">
           <NextIcon />
         </button> */}
