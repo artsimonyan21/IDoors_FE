@@ -3,24 +3,24 @@ import { links } from "@/constants/contsants";
 
 import useClickOutside from "@/hooks/useClickOutside";
 import useHideScroll from "@/hooks/useHideScroll";
-import { useMainContext } from "@/providers/main-provider";
+import { useAppStore } from "@/store/app-store";
 import cn from "@/utils/utils";
 import { Fade as Hamburger } from "hamburger-react";
 import { useRef } from "react";
-import { NavLink } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const {
     isMenuOpen,
-    handleCloseMenu,
-    handleToggleMenu,
-    handleOpenSearchbar,
+    onCloseMenu,
+    onOpenMenu,
+    onOpenSearchbar,
     isSearchbarOpen,
-  } = useMainContext();
+  } = useAppStore((store) => store);
   const menuRef = useRef<HTMLUListElement | null>(null);
 
-  useClickOutside(menuRef, handleCloseMenu);
+  useClickOutside(menuRef, onCloseMenu);
   useHideScroll(isMenuOpen);
 
   return (
@@ -42,7 +42,7 @@ const Navbar = () => {
             <NavLink
               to={link?.route}
               className={cn(" hover:text-blue-1 uppercase")}
-              onClick={handleCloseMenu}
+              onClick={onCloseMenu}
             >
               {link?.pathname}
             </NavLink>
@@ -56,7 +56,7 @@ const Navbar = () => {
           className={` ${
             isSearchbarOpen ? "pointer-events-none" : "pointer-events-auto"
           } hidden md:flex items-center justify-center text-3xl`}
-          onClick={handleOpenSearchbar}
+          onClick={onOpenSearchbar}
         >
           <IoIosSearch />
         </button>
@@ -68,7 +68,7 @@ const Navbar = () => {
         >
           <Hamburger
             toggled={isMenuOpen}
-            onToggle={handleToggleMenu}
+            onToggle={onOpenMenu}
             size={28}
             color="black"
           />

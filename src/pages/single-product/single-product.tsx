@@ -1,10 +1,8 @@
 import ContactBox from "@/components/contact-box";
 import RecomendedDoors from "@/components/recomended-doors";
 import SingleProductBox from "@/components/single-product-box";
-import { useParams } from "react-router";
 
 const SingleProduct = () => {
-  const { id } = useParams();
   return (
     <section className=" w-full pt-[112px] px-10 flex items-center flex-col">
       <div className=" w-full grid md:grid-cols-[2fr_1.5fr] gap-10">

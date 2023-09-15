@@ -1,7 +1,8 @@
-import { useMainContext } from "@/providers/main-provider";
+import { useAppStore } from "@/store/app-store";
 
 const AdminContactBox = () => {
-  const { handleOpenAdminModal } = useMainContext();
+  const onOpenEditModal = useAppStore((store) => store.onOpenEditModal);
+
   return (
     <div className=" w-full flex flex-col items-start gap-y-4 p-4 bg-white">
       <ul className=" w-full flex flex-col items-start gap-y-4 p-4 bg-white">
@@ -29,7 +30,7 @@ const AdminContactBox = () => {
       <div className=" flex items-center gap-4 mt-4">
         <button
           className=" px-4 py-2 text-white bg-green-500"
-          onClick={handleOpenAdminModal}
+          onClick={onOpenEditModal}
         >
           Խմբագրել
         </button>

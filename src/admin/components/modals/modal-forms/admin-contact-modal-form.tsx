@@ -1,84 +1,76 @@
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { adminContactFormSchema } from "@/admin/utils/validations";
 import ErrorMessage from "@/components/ui/error-message";
-
-type SchemaType = z.infer<typeof adminContactFormSchema>;
+import {
+  ContactSchemaType,
+  contactSchema,
+  contactSchemaDefaultValues,
+} from "@/admin/utils/validations/contact-schema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 
 const AdminContactModalForm = () => {
-  const { handleSubmit, formState, register } = useForm<SchemaType>({
-    defaultValues: {
-      email: "",
-      address_1: "",
-      address_2: "",
-      phone_1: "",
-      phone_2: "",
-    },
-    resolver: zodResolver(adminContactFormSchema),
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset,
+  } = useForm<ContactSchemaType>({
+    defaultValues: contactSchemaDefaultValues,
+    resolver: yupResolver(contactSchema),
   });
 
-  const onSubmit = async (values: SchemaType) => {
-    try {
-      console.log(values);
-    } catch (err: any) {
-      console.log(err);
-    }
-  };
+  const onSubmit = handleSubmit((values: ContactSchemaType) => {
+    console.log(values);
+    reset();
+  });
 
   return (
     <form
       className=" w-full flex items-center flex-col gap-y-4 py-4"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={onSubmit}
     >
       <div className=" w-full flex items-start flex-col gap-y-2">
-        <textarea
+        <input
           {...register("email")}
-          rows={5}
-          className=" w-full resize-none shadow-md px-4 placeholder:uppercase rounded-sm"
+          className=" w-full resize-none h-16 shadow-md px-4 placeholder:uppercase rounded-sm"
           placeholder="Email"
         />
-        {formState.errors ? (
-          <ErrorMessage message={formState.errors.email?.message} />
-        ) : null}
+        {errors.email && <ErrorMessage message={errors.email?.message} />}
       </div>
       <div className=" w-full flex items-start flex-col gap-y-2">
-        <textarea
+        <input
           {...register("address_1")}
-          rows={5}
-          className=" w-full shadow-md resize-none px-4 placeholder:uppercase rounded-sm"
+          className=" w-full shadow-md resize-none h-16 px-4 placeholder:uppercase rounded-sm"
           placeholder="Address 1"
         />
-        {formState.errors ? (
-          <ErrorMessage message={formState.errors.address_1?.message} />
-        ) : null}
+        {errors.address_1 && (
+          <ErrorMessage message={errors.address_1?.message} />
+        )}
       </div>
       <div className=" w-full flex items-start flex-col gap-y-2">
-        <textarea
+        <input
           {...register("address_2")}
-          rows={5}
-          className=" w-full resize-none shadow-md px-4 placeholder:uppercase rounded-sm"
+          className=" w-full resize-none h-16 shadow-md px-4 placeholder:uppercase rounded-sm"
           placeholder="Address 2"
         />
+        {errors.address_2 && (
+          <ErrorMessage message={errors.address_2?.message} />
+        )}
       </div>
       <div className=" w-full flex items-start flex-col gap-y-2">
-        <textarea
+        <input
           {...register("phone_1")}
-          rows={5}
-          className=" w-full shadow-md resize-none px-4 placeholder:uppercase rounded-sm"
+          className=" w-full shadow-md resize-none h-16 px-4 placeholder:uppercase rounded-sm"
           placeholder="Phone 1"
         />
-        {formState.errors ? (
-          <ErrorMessage message={formState.errors.phone_1?.message} />
-        ) : null}
+        {errors.phone_1 && <ErrorMessage message={errors.phone_1?.message} />}
       </div>
       <div className=" w-full flex items-start flex-col gap-y-2">
-        <textarea
+        <input
           {...register("phone_2")}
-          rows={5}
-          className=" w-full resize-none shadow-md px-4 placeholder:uppercase rounded-sm"
+          className=" w-full resize-none h-16 shadow-md px-4 placeholder:uppercase rounded-sm"
           placeholder="Phone 2"
         />
+        {errors.phone_2 && <ErrorMessage message={errors.phone_2?.message} />}
       </div>
       <button className=" px-4 py-2 bg-green-500 text-white uppercase text-sm mt-4">
         Հաստատել

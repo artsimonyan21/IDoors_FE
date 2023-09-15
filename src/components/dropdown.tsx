@@ -1,13 +1,15 @@
 import useClickOutside from "@/hooks/useClickOutside";
 import useHideScroll from "@/hooks/useHideScroll";
-import { useMainContext } from "@/providers/main-provider";
+import { useAppStore } from "@/store/app-store";
 import { useRef } from "react";
 
 const Dropdown = () => {
-  const { isDropdownOpen, handleToggleDropdown, handleCloseDropdown } = useMainContext();
+  const { isDropdownOpen, onOpenDropdown, onCloseDropdown } = useAppStore(
+    (store) => store
+  );
   const dropdwonRef = useRef<HTMLUListElement | null>(null);
 
-  useClickOutside(dropdwonRef, handleCloseDropdown);
+  useClickOutside(dropdwonRef, onCloseDropdown);
   useHideScroll(isDropdownOpen);
 
   return (
@@ -16,7 +18,7 @@ const Dropdown = () => {
         className={`${
           isDropdownOpen ? "pointer-events-none" : "pointer-events-auto"
         } flex items-center gap-x-2`}
-        onClick={handleToggleDropdown}
+        onClick={onOpenDropdown}
       >
         <div className=" w-8">
           <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" />
@@ -31,7 +33,10 @@ const Dropdown = () => {
       >
         <li className=" w-full cursor-pointer flex items-center gap-2">
           <div className=" w-8">
-            <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" />
+            <img
+              src="/src/assets/icons/arm-flag-icon.svg"
+              alt="armenian flag"
+            />
           </div>
           <span className=" text-sm">AM</span>
         </li>

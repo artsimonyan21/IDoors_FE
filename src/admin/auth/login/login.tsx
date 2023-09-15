@@ -1,25 +1,28 @@
-import * as z from "zod";
+import {
+  LoginSchemaType,
+  loginSchema,
+  loginSchemaDefaultValues,
+} from "@/admin/utils/validations/login-schema";
 import Button from "@/components/ui/button";
-import { useForm } from "react-hook-form";
-import { loginSchema } from "@/admin/utils/validations";
-import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "@/components/ui/error-message";
-
-type SchemaType = z.infer<typeof loginSchema>;
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { formState, handleSubmit, register } = useForm<SchemaType>({
-    defaultValues: { email: "", password: "" },
-    resolver: zodResolver(loginSchema),
+  const {
+    formState: { errors },
+    handleSubmit,
+    register,
+    reset,
+  } = useForm<LoginSchemaType>({
+    defaultValues: loginSchemaDefaultValues,
+    resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = async (values: SchemaType) => {
-    try {
-      console.log(values);
-    } catch (err: any) {
-      console.log(err);
-    }
-  };
+  const onSubmit = handleSubmit((values: LoginSchemaType) => {
+    console.log(values);
+    reset();
+  });
 
   return (
     <section className=" w-full h-screen flex items-center justify-center">
@@ -30,7 +33,7 @@ const Login = () => {
           </h2>
         </header>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={onSubmit}
           className=" md:w-1/2 sm:w-3/4 w-full flex items-center flex-col gap-4 p-6 "
         >
           <div className=" w-full flex items-start flex-col gap-y-2">
@@ -40,9 +43,7 @@ const Login = () => {
               placeholder="Էլ․Հասցե"
               className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
             />
-            {formState.errors ? (
-              <ErrorMessage message={formState.errors.email?.message} />
-            ) : null}
+            {errors ? <ErrorMessage message={errors.email?.message} /> : null}
           </div>
           <div className=" w-full flex items-start flex-col gap-y-2">
             <input
@@ -51,8 +52,8 @@ const Login = () => {
               placeholder="Գաղտնաբառ"
               className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
             />
-            {formState.errors ? (
-              <ErrorMessage message={formState.errors.password?.message} />
+            {errors ? (
+              <ErrorMessage message={errors.password?.message} />
             ) : null}
           </div>
           <Button>Մուտք</Button>

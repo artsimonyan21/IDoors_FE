@@ -1,30 +1,28 @@
-import * as z from "zod";
+import {
+  RegisterSchemaType,
+  registerSchema,
+  registerSchemaDefaultValues,
+} from "@/admin/utils/validations/register-schema";
 import Button from "@/components/ui/button";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { registerSchema } from "@/admin/utils/validations";
 import ErrorMessage from "@/components/ui/error-message";
-
-type SchemaType = z.infer<typeof registerSchema>;
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const { formState, register, handleSubmit } = useForm<SchemaType>({
-    defaultValues: {
-      name: "",
-      surname: "",
-      email: "",
-      password: "",
-    },
-    resolver: zodResolver(registerSchema),
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+    reset,
+  } = useForm<RegisterSchemaType>({
+    defaultValues: registerSchemaDefaultValues,
+    resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = async (values: SchemaType) => {
-    try {
-      console.log(values);
-    } catch (err: any) {
-      console.log(err);
-    }
-  };
+  const onSubmit = handleSubmit((values: RegisterSchemaType) => {
+    console.log(values);
+    reset();
+  });
 
   return (
     <section className=" w-full h-[calc(100vh-40px)] flex items-center justify-center">
@@ -35,7 +33,7 @@ const Register = () => {
           </h2>
         </header>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={onSubmit}
           className=" md:w-1/2 sm:w-3/4 w-full flex items-center flex-col gap-4 p-6 "
         >
           <div className=" w-full flex items-start flex-col gap-y-2">
@@ -45,9 +43,7 @@ const Register = () => {
               placeholder="Անուն"
               className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
             />
-            {formState.errors ? (
-              <ErrorMessage message={formState.errors.name?.message} />
-            ) : null}
+            {errors ? <ErrorMessage message={errors.name?.message} /> : null}
           </div>
           <div className=" w-full flex items-start flex-col gap-y-2">
             <input
@@ -56,9 +52,7 @@ const Register = () => {
               placeholder="Ազգանուն"
               className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
             />
-            {formState.errors ? (
-              <ErrorMessage message={formState.errors.surname?.message} />
-            ) : null}
+            {errors ? <ErrorMessage message={errors.surname?.message} /> : null}
           </div>
           <div className=" w-full flex items-start flex-col gap-y-2">
             <input
@@ -67,9 +61,7 @@ const Register = () => {
               placeholder="Էլ․Հասցե"
               className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
             />
-            {formState.errors ? (
-              <ErrorMessage message={formState.errors.email?.message} />
-            ) : null}
+            {errors ? <ErrorMessage message={errors.email?.message} /> : null}
           </div>
           <div className=" w-full flex items-start flex-col gap-y-2">
             <input
@@ -78,8 +70,8 @@ const Register = () => {
               placeholder="Գաղտնաբառ"
               className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
             />
-            {formState.errors ? (
-              <ErrorMessage message={formState.errors.password?.message} />
+            {errors ? (
+              <ErrorMessage message={errors.password?.message} />
             ) : null}
           </div>
           <Button>Ավելացնել</Button>

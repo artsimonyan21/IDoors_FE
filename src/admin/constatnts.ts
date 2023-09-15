@@ -6,22 +6,22 @@ interface AdminSidebarProps {
 export const adminSidebarLinks: AdminSidebarProps[] = [
   {
     name: "գլխավոր",
-    route: "/admin"
+    route: "/admin",
   },
   {
     name: "գլխավոր սլայդ",
-    route: "/admin/banner-slide"
+    route: "/admin/banner-slide",
   },
   {
     name: "մեր մասին",
-    route: "/admin/about"
+    route: "/admin/about",
   },
   {
     name: "տեսականի",
-    route: "/admin/products"
+    route: "/admin/products",
   },
   {
     name: "Կոնտակտ ինֆո",
-    route: "/admin/footer-info"
-  }
+    route: "/admin/footer-info",
+  },
 ];

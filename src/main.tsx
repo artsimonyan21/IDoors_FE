@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import MainProvider from "./providers/main-provider";
+import App from "./App";
+import AppWrapper from "./app-wrapper/app-wrapper";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <MainProvider>
+    <AppWrapper>
       <App />
-    </MainProvider>
+    </AppWrapper>
   </BrowserRouter>
 );

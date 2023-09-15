@@ -1,32 +1,20 @@
-import { useMainContext } from "@/providers/main-provider";
+import { useAppStore } from "@/store/app-store";
 import AdminContactBox from "../components/boxes/admin-contact-box";
 import AdminModal from "../components/modals/admin-modal";
 import AdminContactModalForm from "../components/modals/modal-forms/admin-contact-modal-form";
 import PageTitle from "../components/page-title";
 
 const AdminFooter = () => {
-  const {
-    isAdminModalOpen,
-    handleCloseAdminModal,
-    isAdminAddModalOpen,
-    handleCloseAdminAddModal,
-    handleOpenAdminAddModal,
-  } = useMainContext();
+  const { isEditModalOpen, isModalOpen, onOpenModal } = useAppStore(
+    (store) => store
+  );
   return (
     <>
-      {isAdminModalOpen ? (
-        <AdminModal
-          title="Խմբագրել"
-          body={<AdminContactModalForm />}
-          onClose={handleCloseAdminModal}
-        />
+      {isEditModalOpen ? (
+        <AdminModal title="Խմբագրել" body={<AdminContactModalForm />} />
       ) : null}
-      {isAdminAddModalOpen ? (
-        <AdminModal
-          title="Ավելացնել"
-          body={<AdminContactModalForm />}
-          onClose={handleCloseAdminAddModal}
-        />
+      {isModalOpen ? (
+        <AdminModal title="Ավելացնել" body={<AdminContactModalForm />} />
       ) : null}
       <section className=" p-10 pt-0 flex items-center flex-col">
         <header className=" my-10">
@@ -35,7 +23,7 @@ const AdminFooter = () => {
         <div className=" w-full md:sticky top-10 py-4 z-30 bg-light-1">
           <button
             className=" w-full h-12 bg-yellow-500 text-white px-4"
-            onClick={handleOpenAdminAddModal}
+            onClick={onOpenModal}
           >
             Ավելացնել
           </button>

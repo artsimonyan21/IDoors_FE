@@ -1,4 +1,4 @@
-import { useMainContext } from "@/providers/main-provider";
+import { useNavigate } from "react-router";
 import Button from "./ui/button";
 
 interface NewRangeProps {
@@ -7,7 +7,8 @@ interface NewRangeProps {
 }
 
 const NewRange = ({ img, doorName }: NewRangeProps) => {
-  const { seeSingleProduct } = useMainContext();
+  const navigate = useNavigate();
+
   return (
     <div className=" min-w-full aspect-square bg-white relative">
       <div className=" w-1/2 absolute left-0 -top-20 ml-10">
@@ -16,7 +17,7 @@ const NewRange = ({ img, doorName }: NewRangeProps) => {
       <Button
         className=" w-11/12 h-fit absolute left-0 -bottom-2 text-sm"
         icon
-        onClick={seeSingleProduct}
+        onClick={() => navigate(`/products/2`)}
       >
         <p>{doorName}</p>
       </Button>

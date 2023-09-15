@@ -1,10 +1,12 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useAppStore } from "@/store/app-store";
 import { AiOutlineMenu } from "react-icons/ai";
-import { useMainContext } from "@/providers/main-provider";
+import { NavLink, useLocation } from "react-router-dom";
 
 const AdminNavbar = () => {
   const { pathname } = useLocation();
-  const { handleToggleAdminSidebar, isAdminSidebarOpen } = useMainContext();
+  const { isAdminSidebarOpen, onToggleAdminSidebar } = useAppStore(
+    (store) => store
+  );
 
   return (
     <nav
@@ -14,11 +16,17 @@ const AdminNavbar = () => {
     >
       <div className=" flex items-center gap-4">
         {pathname !== "/admin/register" ? (
-          <button onClick={handleToggleAdminSidebar} className=" flex items-center justify-center">
+          <button
+            onClick={onToggleAdminSidebar}
+            className=" flex items-center justify-center"
+          >
             <AiOutlineMenu />
           </button>
         ) : null}
-        <NavLink to={"/admin/register"} className=" uppercase underline sm:text-base text-sm">
+        <NavLink
+          to={"/admin/register"}
+          className=" uppercase underline sm:text-base text-sm"
+        >
           Ավելացնել ադմին
         </NavLink>
       </div>

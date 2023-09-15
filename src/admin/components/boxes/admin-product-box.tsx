@@ -1,7 +1,8 @@
-import { useMainContext } from "@/providers/main-provider";
+import { useAppStore } from "@/store/app-store";
 
 const AdminProductBox = () => {
-  const { handleOpenAdminModal } = useMainContext();
+  const onOpenEditModal = useAppStore((store) => store.onOpenEditModal);
+
   return (
     <div className=" w-full flex flex-col items-center gap-y-4 p-4 bg-white">
       <div className=" w-full aspect-video flex items-center justify-center">
@@ -33,22 +34,14 @@ const AdminProductBox = () => {
           <div>
             <span className=" text-blue-1 font-semibold">Կատեգորիա:</span>
           </div>
-          <select
-            name=""
-            id=""
-            className=" w-64 h-12 px-4 bg-white shadow-md cursor-pointer"
-          >
-            <optgroup>
-              <option value="">Option 1</option>
-              <option value="">Option 2</option>
-              <option value="">Option 3</option>
-            </optgroup>
-          </select>
+          <div>
+            <span>Սենյակային դռներ</span>
+          </div>
         </div>
         <div className=" flex items-center gap-4 mt-4">
           <button
             className=" px-4 py-2 text-white bg-green-500"
-            onClick={handleOpenAdminModal}
+            onClick={onOpenEditModal}
           >
             Խմբագրել
           </button>

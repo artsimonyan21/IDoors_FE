@@ -22,12 +22,6 @@ const SwiperShowItems = () => {
             <NewRange doorName={product?.doorName} img={product?.img} />
           </SwiperSlide>
         ))}
-        {/* <button className="swiper_button_prev swiper_button_base">
-          <PrevIcon />
-        </button> 
-        <button className="swiper_button_next swiper_button_base">
-          <NextIcon />
-        </button> */}
       </Swiper>
     </section>
   );

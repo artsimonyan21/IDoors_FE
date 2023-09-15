@@ -1,32 +1,32 @@
-import { adminBannerFormSchema } from "@/admin/utils/validations";
+import {
+  MainSlideSchemaType,
+  mainSlideDefaultValues,
+  mainSlideSchema,
+} from "@/admin/utils/validations/main-slide-schema";
 import ErrorMessage from "@/components/ui/error-message";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
-
-type SchemaType = z.infer<typeof adminBannerFormSchema>;
 
 const AdminBannerSlideModalForm = () => {
-  const { handleSubmit, formState, register } = useForm<SchemaType>({
-    defaultValues: {
-      name: "",
-      desc: "",
-    },
-    resolver: zodResolver(adminBannerFormSchema),
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset,
+  } = useForm<MainSlideSchemaType>({
+    defaultValues: mainSlideDefaultValues,
+    resolver: yupResolver(mainSlideSchema),
   });
 
-  const onSubmit = async (values: SchemaType) => {
-    try {
-      console.log(values);
-    } catch (err: any) {
-      console.log(err);
-    }
-  };
+  const onSubmit = handleSubmit((values: MainSlideSchemaType) => {
+    console.log(values);
+    reset();
+  });
 
   return (
     <form
       className=" w-full grid md:grid-cols-[1fr_2fr] gap-4"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={onSubmit}
     >
       <div className=" w-full flex items-center flex-col gap-y-4">
         <div className=" w-full flex items-center justify-center">
@@ -49,9 +49,7 @@ const AdminBannerSlideModalForm = () => {
             placeholder="Անուն"
             className=" w-full h-12 shadow-md px-4 placeholder:uppercase rounded-sm"
           />
-          {formState.errors ? (
-            <ErrorMessage message={formState.errors.name?.message} />
-          ) : null}
+          {errors ? <ErrorMessage message={errors.name?.message} /> : null}
         </div>
         <div className=" w-full flex items-start flex-col gap-y-2">
           <textarea
@@ -60,9 +58,7 @@ const AdminBannerSlideModalForm = () => {
             placeholder="Նկարագրություն"
             className=" w-full resize-none shadow-md px-4 placeholder:uppercase text-black rounded-sm"
           />
-          {formState.errors ? (
-            <ErrorMessage message={formState.errors.desc?.message} />
-          ) : null}
+          {errors ? <ErrorMessage message={errors.desc?.message} /> : null}
         </div>
         <button className=" px-4 py-2 bg-green-500 text-white uppercase text-sm mt-4">
           Հաստատել

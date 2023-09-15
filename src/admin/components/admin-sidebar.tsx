@@ -1,15 +1,17 @@
+import useClickOutside from "@/hooks/useClickOutside";
+import { useAppStore } from "@/store/app-store";
+import { useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { adminSidebarLinks } from "../constatnts";
-import { useMainContext } from "@/providers/main-provider";
-import { useRef } from "react";
-import useClickOutside from "@/hooks/useClickOutside";
 
 const AdminSidebar = () => {
   const { pathname } = useLocation();
-  const { isAdminSidebarOpen, handleCloseAdminSidebar } = useMainContext();
+  const { isAdminSidebarOpen, onCloseAdminSidebar } = useAppStore(
+    (store) => store
+  );
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
-  useClickOutside(sidebarRef, handleCloseAdminSidebar);
+  useClickOutside(sidebarRef, onCloseAdminSidebar);
 
   return (
     <div
@@ -28,7 +30,7 @@ const AdminSidebar = () => {
                   ? "active"
                   : " text-black"
               }`}
-              onClick={handleCloseAdminSidebar}
+              onClick={onCloseAdminSidebar}
             >
               {link?.name}
             </NavLink>
