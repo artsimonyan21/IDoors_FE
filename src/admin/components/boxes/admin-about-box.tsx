@@ -8,7 +8,7 @@ const AdminAboutBox = () => {
       <div className=" w-full aspect-video flex items-center justify-center">
         <div className=" w-1/3">
           <img
-            src="/src/assets/images/doorInAdverstising.png"
+            src="/images/doorInAdverstising.png"
             alt=""
             className=" object-cover"
           />
@@ -16,11 +16,7 @@ const AdminAboutBox = () => {
       </div>
       <div>
         <div className=" flex items-center gap-1">
-          <img
-            src="/src/assets/icons/arm-flag-icon.svg"
-            alt=""
-            className=" w-6 h-6"
-          />
+          <img src="/icons/arm-flag-icon.svg" alt="" className=" w-6 h-6" />
           <h2>AM</h2>
         </div>
         <p>
@@ -33,11 +29,7 @@ const AdminAboutBox = () => {
       </div>
       <div>
         <div className=" flex items-center gap-1">
-          <img
-            src="/src/assets/icons/eng-flag-icon.svg"
-            alt=""
-            className=" w-6 h-6"
-          />
+          <img src="/icons/eng-flag-icon.svg" alt="" className=" w-6 h-6" />
           <h2>EN</h2>
         </div>
         <p>
@@ -50,11 +42,7 @@ const AdminAboutBox = () => {
       </div>
       <div>
         <div className=" flex items-center gap-1">
-          <img
-            src="/src/assets/icons/rus-flag-icon.svg"
-            alt=""
-            className=" w-6 h-6"
-          />
+          <img src="/icons/rus-flag-icon.svg" alt="" className=" w-6 h-6" />
           <h2>RU</h2>
         </div>
         <p>

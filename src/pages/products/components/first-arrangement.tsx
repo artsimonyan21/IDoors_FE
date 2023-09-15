@@ -1,5 +1,5 @@
 import NewRange from "@/components/new-range";
-import DoorRange from "/src/assets/images/doorRange.png";
+import DoorRange from "/images/doorRange.png";
 
 const FirstArrangement = () => {
   return (

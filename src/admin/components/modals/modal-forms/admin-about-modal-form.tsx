@@ -31,7 +31,7 @@ const AdminAboutModalForm = () => {
       <div className=" w-full flex items-center flex-col gap-y-4">
         <div className=" w-full flex items-center justify-center">
           <div className=" w-full">
-            <img src="/src/assets/images/placeholder-image.png" alt="" />
+            <img src="/images/placeholder-image.png" alt="" />
           </div>
         </div>
         <div className=" w-full">

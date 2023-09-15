@@ -10,20 +10,20 @@ interface LinksProps {
 export const links: LinksProps[] = [
   {
     pathname: "ԳԼԽԱՎՈՐ",
-    route: "/"
+    route: "/",
   },
   {
     pathname: "Մեր մասին",
-    route: "/about"
+    route: "/about",
   },
   {
     pathname: "ՏԵՍականի",
-    route: "/products"
+    route: "/products",
   },
   {
     pathname: "ՀԵՏԱԴԱՐՁ ԿԱՊ",
-    route: "/contact"
-  }
+    route: "/contact",
+  },
 ];
 
 interface ProductProps {
@@ -34,36 +34,36 @@ interface ProductProps {
 export const products: ProductProps[] = [
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
+    img: "/images/doorRange.png",
   },
   {
     doorName: "WNG008 ID-002",
-    img: "/src/assets/images/doorRange.png"
-  }
+    img: "/images/doorRange.png",
+  },
 ];
 
 interface FooterProps {
@@ -87,64 +87,64 @@ export const footerLinks: FooterProps = {
   links: [
     {
       pathname: "ԳԼԽԱՎՈՐ",
-      route: "/"
+      route: "/",
     },
     {
       pathname: "Հայտարարություններ",
-      route: "/news"
+      route: "/news",
     },
     {
       pathname: "Մեր մասին",
-      route: "/about"
+      route: "/about",
     },
     {
       pathname: "ՏԵՍականի",
-      route: "/products?type=first-arragement"
+      route: "/products?type=first-arragement",
     },
     {
       pathname: "Կապ",
-      route: "/contact"
-    }
+      route: "/contact",
+    },
   ],
   contacts: [
     {
-      icon: "/src/assets/icons/mail-icon.svg",
+      icon: "/icons/mail-icon.svg",
       title: "info@idoors.am",
-      name: "mail"
+      name: "mail",
     },
     {
-      icon: "/src/assets/icons/location-icon.svg",
+      icon: "/icons/location-icon.svg",
       title: "Նար-Դոս 36/19 (խանութ-սրահ)",
-      name: "location"
+      name: "location",
     },
     {
-      icon: "/src/assets/icons/location-icon.svg",
+      icon: "/icons/location-icon.svg",
       title: "Խաղաղ Դոնի 1/9 (Արտադրամաս,խանութ-սրահ)",
-      name: "location"
+      name: "location",
     },
     {
-      icon: "/src/assets/icons/phone-icon.svg",
+      icon: "/icons/phone-icon.svg",
       title: "+374 93 10 00 12",
-      name: "phone number"
+      name: "phone number",
     },
     {
-      icon: "/src/assets/icons/phone-icon.svg",
+      icon: "/icons/phone-icon.svg",
       title: "+374 33 01 00 12",
-      name: "phone number"
-    }
+      name: "phone number",
+    },
   ],
   socials: [
     {
-      icon: "/src/assets/icons/facebook-icon.svg",
+      icon: "/icons/facebook-icon.svg",
       route: "",
-      name: "facebook"
+      name: "facebook",
     },
     {
-      icon: "/src/assets/icons/instagram-icon.svg",
+      icon: "/icons/instagram-icon.svg",
       route: "",
-      name: "instagram"
-    }
-  ]
+      name: "instagram",
+    },
+  ],
 };
 
 interface ContactProps {
@@ -155,30 +155,30 @@ interface ContactProps {
 
 export const contacts: ContactProps[] = [
   {
-    icon: "/src/assets/icons/mail-blue-icon.svg",
+    icon: "/icons/mail-blue-icon.svg",
     title: "info@idoors.am",
-    name: "mail"
+    name: "mail",
   },
   {
-    icon: "/src/assets/icons/location-blue-icon.svg",
+    icon: "/icons/location-blue-icon.svg",
     title: "Նար-Դոս 36/19 (խանութ-սրահ)",
-    name: "location"
+    name: "location",
   },
   {
-    icon: "/src/assets/icons/location-blue-icon.svg",
+    icon: "/icons/location-blue-icon.svg",
     title: "Խաղաղ Դոնի 1/9 (Արտադրամաս,խանութ-սրահ)",
-    name: "location"
+    name: "location",
   },
   {
-    icon: "/src/assets/icons/phone-blue-icon.svg",
+    icon: "/icons/phone-blue-icon.svg",
     title: "+374 93 10 00 12",
-    name: "phone number"
+    name: "phone number",
   },
   {
-    icon: "/src/assets/icons/phone-blue-icon.svg",
+    icon: "/icons/phone-blue-icon.svg",
     title: "+374 33 01 00 12",
-    name: "phone number"
-  }
+    name: "phone number",
+  },
 ];
 
 interface ProductsLayoutLinksProps {
@@ -191,11 +191,11 @@ export const productsLayoutLinks: ProductsLayoutLinksProps[] = [
   {
     value: "first-arrangement",
     route: "/products?type=first-arrangement",
-    icon: CgMenuGridR
+    icon: CgMenuGridR,
   },
   {
     value: "second-arrangement",
     route: "/products?type=second-arrangement",
-    icon: TfiMenuAlt
-  }
+    icon: TfiMenuAlt,
+  },
 ];

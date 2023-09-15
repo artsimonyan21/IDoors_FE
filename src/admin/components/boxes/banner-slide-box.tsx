@@ -8,7 +8,7 @@ const BannerSlideBox = () => {
       <div className=" w-full aspect-video flex items-center justify-center">
         <div className=" w-1/3">
           <img
-            src="/src/assets/images/doorInAdverstising.png"
+            src="/images/doorInAdverstising.png"
             alt=""
             className=" object-cover"
           />

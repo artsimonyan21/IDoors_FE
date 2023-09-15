@@ -7,11 +7,7 @@ const AdminProductBox = () => {
     <div className=" w-full flex flex-col items-center gap-y-4 p-4 bg-white">
       <div className=" w-full aspect-video flex items-center justify-center">
         <div className=" w-1/3">
-          <img
-            src="/src/assets/images/doorRange.png"
-            alt=""
-            className=" object-cover"
-          />
+          <img src="/images/doorRange.png" alt="" className=" object-cover" />
         </div>
       </div>
       <div className=" w-full flex items-start flex-col gap-y-2 text-start mt-4">

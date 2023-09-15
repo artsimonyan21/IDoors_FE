@@ -1,5 +1,5 @@
 import Button from "@/components/ui/button";
-import door from "../../../assets/images/doorRange.png";
+import door from "/images/doorRange.png";
 
 const AboutCard = () => {
   return (
@@ -29,7 +29,6 @@ const AboutCard = () => {
           alt=""
           className=" w-1/2 absolute lg:left-12 left-1/4"
         />
-        {/* <div></div> */}
       </div>
     </section>
   );

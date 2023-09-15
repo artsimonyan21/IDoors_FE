@@ -8,7 +8,12 @@ interface Props {
 
 const PageTitle = ({ children, className }: Props) => {
   return (
-    <h2 className={cn(" text-4xl text-blue-1 uppercase", className || "")}>
+    <h2
+      className={cn(
+        " text-4xl text-blue-1 uppercase font-[ezo-na]",
+        className || ""
+      )}
+    >
       {children}
     </h2>
   );

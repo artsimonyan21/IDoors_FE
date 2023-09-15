@@ -1,6 +1,6 @@
 import Button from "@/components/ui/button";
 import { useNavigate } from "react-router";
-import DoorImg from "/src/assets/images/doorRange.png";
+import DoorImg from "/images/doorRange.png";
 
 const HorizontalDoorItem = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Door from "/src/assets/images/doorInAdverstising.png";
+import Door from "/images/doorInAdverstising.png";
 import Button from "./ui/button";
 
 import "swiper/css";

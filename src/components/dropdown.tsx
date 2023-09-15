@@ -21,7 +21,7 @@ const Dropdown = () => {
         onClick={onOpenDropdown}
       >
         <div className=" w-8">
-          <img src="/src/assets/icons/arm-flag-icon.svg" alt="armenian flag" />
+          <img src="/icons/arm-flag-icon.svg" alt="armenian flag" />
         </div>
         <span>AM</span>
       </button>
@@ -33,22 +33,19 @@ const Dropdown = () => {
       >
         <li className=" w-full cursor-pointer flex items-center gap-2">
           <div className=" w-8">
-            <img
-              src="/src/assets/icons/arm-flag-icon.svg"
-              alt="armenian flag"
-            />
+            <img src="/icons/arm-flag-icon.svg" alt="armenian flag" />
           </div>
           <span className=" text-sm">AM</span>
         </li>
         <li className=" w-full cursor-pointer flex items-center gap-2">
           <div className=" w-8">
-            <img src="/src/assets/icons/eng-flag-icon.svg" alt="england flag" />
+            <img src="/icons/eng-flag-icon.svg" alt="england flag" />
           </div>
           <span className=" text-sm">EN</span>
         </li>
         <li className=" w-full cursor-pointer flex items-center gap-2">
           <div className=" w-8">
-            <img src="/src/assets/icons/rus-flag-icon.svg" alt="russian flag" />
+            <img src="/icons/rus-flag-icon.svg" alt="russian flag" />
           </div>
           <span className=" text-sm">RU</span>
         </li>

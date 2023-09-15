@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     <footer className=" w-full p-6 pt-12 pb-0 bg-blue-1 text-white">
       <div className=" w-full grid md:grid-cols-4 gap-4">
         <div>
-          <img src="/src/assets/images/logo.svg" alt="" />
+          <img src="/images/logo.svg" alt="" />
         </div>
         <FooterCard title="Օգտակար Հղումներ">
           <ul className=" flex items-start flex-col gap-1 uppercase">
@@ -25,7 +25,10 @@ const Footer: React.FC = () => {
         <FooterCard title="ԿԱՊ ՄԵԶ ՀԵՏ">
           <ul className=" flex items-start flex-col gap-1">
             {footerLinks?.contacts?.map((contact, index: number) => (
-              <li key={index} className=" flex items-center justify-center gap-1">
+              <li
+                key={index}
+                className=" flex items-center justify-center gap-1"
+              >
                 <img src={contact?.icon} alt={contact?.name} />
                 <p className=" xs:text-base text-sm">{contact?.title}</p>
               </li>

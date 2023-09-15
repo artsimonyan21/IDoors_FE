@@ -3,7 +3,7 @@ import Searchbar from "@/components/searchbar";
 import Button from "@/components/ui/button";
 import { products } from "@/constants/contsants";
 import { useNavigate } from "react-router";
-import DoorRange from "../../assets/images/doorRange.png";
+import DoorRange from "/images/doorRange.png";
 import IfInterested from "../../components/if-interested";
 import NewRange from "../../components/new-range";
 import SwiperAdverstising from "../../components/swiper-adverstising";
@@ -29,9 +29,15 @@ const Home = () => {
               <h2 className=" xs:text-5xl text-4xl text-blue-1 font-[EZO-NA]">
                 ԴՌՆԵՐԻ ԼԱՅՆ ԸՆՏՐԱՆԻ
               </h2>
-              <p className=" sm:text-sm text-xs">Միայն որակյալ տեսականի հենց Ձեզ համար</p>
+              <p className=" sm:text-sm text-xs">
+                Միայն որակյալ տեսականի հենց Ձեզ համար
+              </p>
             </div>
-            <Button className=" sm:w-1/2 w-3/4" icon onClick={() => navigate("/products")}>
+            <Button
+              className=" sm:w-1/2 w-3/4"
+              icon
+              onClick={() => navigate("/products")}
+            >
               ՏԵՍականի
             </Button>
           </div>
@@ -60,14 +66,20 @@ const Home = () => {
       </section>
       <section className=" w-full px-10">
         <header className=" w-full flex justify-start items-center py-4">
-          <h4 className=" text-2xl font-semibold uppercase">Սենյակային դռներ</h4>
+          <h4 className=" text-2xl font-semibold uppercase">
+            Սենյակային դռներ
+          </h4>
         </header>
         <div className=" lg:block hidden w-full">
           <SwiperShowItems />
         </div>
         <div className=" w-full lg:hidden grid md:grid-cols-4 xs:grid-cols-2 gap-x-6 gap-y-28 py-20">
           {products?.map((product, index: number) => (
-            <NewRange key={index} img={product?.img} doorName={product?.doorName} />
+            <NewRange
+              key={index}
+              img={product?.img}
+              doorName={product?.doorName}
+            />
           ))}
         </div>
       </section>
@@ -80,7 +92,11 @@ const Home = () => {
         </div>
         <div className=" w-full lg:hidden grid md:grid-cols-4 xs:grid-cols-2 gap-x-6 gap-y-28 py-20">
           {products?.map((product, index: number) => (
-            <NewRange key={index} img={product?.img} doorName={product?.doorName} />
+            <NewRange
+              key={index}
+              img={product?.img}
+              doorName={product?.doorName}
+            />
           ))}
         </div>
       </section>
