@@ -9,7 +9,7 @@ interface Props {
   isDropdownOpen: boolean;
   onOpenDropdown: () => void;
   onCloseDropdown: () => void;
-  onToggleAdminSidebar: () => void;
+  onOpenAdminSidebar: () => void;
   onCloseAdminSidebar: () => void;
   onOpenMenu: () => void;
   onCloseMenu: () => void;
@@ -22,9 +22,8 @@ interface Props {
 }
 
 type SetState = StoreApi<Props>["setState"];
-type GetState = StoreApi<Props>["getState"];
 
-export const useAppStore = create<Props>()((set: SetState, get: GetState) => ({
+export const useAppStore = create<Props>()((set: SetState) => ({
   isModalOpen: false,
   isEditModalOpen: false,
   isSearchbarOpen: false,
@@ -33,11 +32,7 @@ export const useAppStore = create<Props>()((set: SetState, get: GetState) => ({
   isDropdownOpen: false,
   onOpenDropdown: () => set({ isDropdownOpen: true }),
   onCloseDropdown: () => set({ isDropdownOpen: false }),
-  onToggleAdminSidebar: () => {
-    const isOpen = get().isAdminSidebarOpen;
-    set({ isAdminSidebarOpen: !isOpen });
-    console.log(isOpen);
-  },
+  onOpenAdminSidebar: () => set({ isAdminSidebarOpen: true }),
   onCloseAdminSidebar: () => set({ isAdminSidebarOpen: false }),
   onOpenMenu: () => set({ isMenuOpen: true }),
   onCloseMenu: () => set({ isMenuOpen: false }),

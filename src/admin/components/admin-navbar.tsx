@@ -4,7 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const AdminNavbar = () => {
   const { pathname } = useLocation();
-  const { isAdminSidebarOpen, onToggleAdminSidebar } = useAppStore(
+  const { isAdminSidebarOpen, onOpenAdminSidebar } = useAppStore(
     (store) => store
   );
 
@@ -17,7 +17,7 @@ const AdminNavbar = () => {
       <div className=" flex items-center gap-4">
         {pathname !== "/admin/register" ? (
           <button
-            onClick={onToggleAdminSidebar}
+            onClick={onOpenAdminSidebar}
             className=" flex items-center justify-center"
           >
             <AiOutlineMenu />
