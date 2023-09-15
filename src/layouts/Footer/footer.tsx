@@ -1,8 +1,6 @@
 import { footerLinks } from "@/constants/contsants";
 import FooterCard from "./components/footer-card";
 import { Link } from "react-router-dom";
-// import Logo from "../../../assets/images/logo.svg";
-// import { NavLink } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (

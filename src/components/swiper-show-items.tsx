@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 const SwiperShowItems = () => {
   return (
-    <section className=" w-full min-h-[80vh] flex items-center justify-center flex-col">
+    <section className=" w-full h-fit flex items-center justify-center flex-col">
       <Swiper
         spaceBetween={24}
         slidesPerView={4}

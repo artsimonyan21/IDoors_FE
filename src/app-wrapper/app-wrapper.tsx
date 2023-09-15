@@ -18,7 +18,7 @@ const AppWrapper = ({ children }: Props) => {
   } = useAppStore((store) => store);
 
   return (
-    <main className=" w-full h-full overflow-x-hidden">
+    <main className=" w-screen max-w-screen-3xl flex flex-col items-center justify-between mx-auto overflow-x-hidden">
       {isMenuOpen ? (
         <div className=" w-full h-full md:hidden">
           <Overlay />

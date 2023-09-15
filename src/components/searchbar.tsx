@@ -17,7 +17,7 @@ const Searchbar = () => {
     >
       <form
         action=""
-        className=" w-full h-12 flex items-center flex-wrap bg-white"
+        className=" w-full h-12 md:grid grid-cols-[3fr_1fr] flex items-center flex-wrap bg-white"
       >
         <div className=" flex grow h-full">
           <div className=" h-full flex items-center justify-center text-2xl px-4">
