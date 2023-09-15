@@ -28,7 +28,7 @@ const AppWrapper = ({ children }: Props) => {
       isEditModalOpen ||
       isModalOpen ||
       isDropdownOpen ? (
-        <div className=" w-full h-full">
+        <div className=" w-full h-full fixed z-[100]">
           <Overlay />
         </div>
       ) : null}

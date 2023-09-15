@@ -27,9 +27,9 @@ const Dropdown = () => {
       </button>
       <ul
         ref={dropdwonRef}
-        className={`  absolute items-center flex-col gap-y-4 ${
+        className={` fixed items-center flex-col gap-y-4 ${
           isDropdownOpen ? "flex" : "hidden"
-        } top-[100px] right-2 p-4 bg-light-1 shadow-md z-50`}
+        } top-[100px] right-2 p-4 bg-light-1 shadow-md z-[999]`}
       >
         <li className=" w-full cursor-pointer flex items-center gap-2">
           <div className=" w-8">
