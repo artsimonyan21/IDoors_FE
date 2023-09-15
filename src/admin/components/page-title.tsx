@@ -10,7 +10,7 @@ const PageTitle = ({ children, className }: Props) => {
   return (
     <h2
       className={cn(
-        " text-4xl text-blue-1 uppercase font-[ezo-na]",
+        " md:text-6xl sm:text-5xl text-4xl tracking-wider text-blue-1 uppercase font-[ezo-na]",
         className || ""
       )}
     >

@@ -5,10 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "/fonts/Bokonique-Bold.otf";
-@import "/fonts/Bokonique-Light.otf";
-@import "/fonts/Bokonique-Regular.otf";
-@import "/fonts/EZO-NA-Bold.otf";
+@import "src/fonts/Bokonique-Bold.otf";
+@import "src/fonts/Bokonique-Light.otf";
+@import "src/fonts/Bokonique-Regular.otf";
+@import "src/fonts/EZO-NA-Bold.otf";
 
 @font-face {
   font-family: "Bokonique";

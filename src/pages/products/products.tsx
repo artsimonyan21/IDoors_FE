@@ -26,7 +26,7 @@ const Products = productsHoc(({ selectedComponent, handleSelectComponent }) => (
       </div>
       <div className=" w-full flex items-center flex-col">
         <header className=" w-full flex items-center justify-end flex-wrap gap-4 py-4 mb-6">
-          <div className=" flex items-center justify-end gap-2">
+          <div className=" w-full flex items-center justify-end gap-2">
             {productsLayoutLinks?.map((link, index: number) => (
               <button
                 key={index}
