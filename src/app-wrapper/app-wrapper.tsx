@@ -18,7 +18,7 @@ const AppWrapper = ({ children }: Props) => {
   } = useAppStore((store) => store);
 
   return (
-    <main className=" w-screen max-w-screen-3xl flex flex-col items-center justify-between mx-auto overflow-x-hidden">
+    <main className=" w-full h-full overflow-x-hidden">
       {isMenuOpen ? (
         <div className=" w-full h-full md:hidden">
           <Overlay />
@@ -35,7 +35,7 @@ const AppWrapper = ({ children }: Props) => {
 
       {isSearchbarOpen ? (
         <>
-          <section className=" w-full h-full hidden md:flex items-center justify-center fixed z-[100]">
+          <section className=" w-full h-full hidden md:flex items-center justify-center fixed z-[999]">
             <Searchbar />
           </section>
           <div className=" w-full h-full md:flex hidden">

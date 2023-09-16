@@ -20,7 +20,10 @@ export default {
         "gray-1": "#BFB7B7",
       },
       gridTemplateColumns: {
-        "grid-1": "repeat(auto-fit, minmax(250px, 1fr))",
+        "grid-1": "repeat(auto-fit, minmax(300px, 1fr))",
+      },
+      maxWidth: {
+        "max-device": "1920px",
       },
     },
   },

@@ -47,7 +47,7 @@ const Home = () => {
         <div className=" w-full flex justify-start items-center py-4">
           <h4 className=" text-2xl font-semibold uppercase">Նոր տեսականի</h4>
         </div>
-        <div className=" w-full grid md:grid-cols-4 xs:grid-cols-2 gap-x-6 gap-y-28 py-20">
+        <div className=" w-full grid md:grid-cols-grid-1 xs:grid-cols-2 gap-x-6 gap-y-28 py-20">
           <NewRange img={DoorRange} doorName={"WNG008 ID-002"} />
           <NewRange img={DoorRange} doorName={"WNG008 ID-002"} />
           <NewRange img={DoorRange} doorName={"WNG008 ID-002"} />

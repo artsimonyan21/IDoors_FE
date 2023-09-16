@@ -24,7 +24,7 @@ const Navbar = () => {
   useHideScroll(isMenuOpen);
 
   return (
-    <nav className=" fixed left-0 top-0 w-full h-[92px] flex items-center justify-between gap-x-5 xs:px-10 px-5 z-50 bg-light-1 mb-[92px] shadow-md">
+    <nav className=" fixed left-0 top-0 w-full h-[92px] flex items-center justify-between gap-x-5 xs:px-10 px-5 z-[999] bg-light-1 mb-[92px] shadow-md">
       <NavLink to="/" className="flex items-center">
         <img src="/images/logo.svg" alt="" />
       </NavLink>
