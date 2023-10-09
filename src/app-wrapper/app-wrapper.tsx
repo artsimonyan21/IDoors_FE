@@ -19,30 +19,17 @@ const AppWrapper = ({ children }: Props) => {
 
   return (
     <main className=" w-full h-full overflow-x-hidden">
-      {isMenuOpen ? (
-        <div className=" w-full h-full md:hidden">
-          <Overlay />
-        </div>
-      ) : null}
-      {isAdminSidebarOpen ||
-      isEditModalOpen ||
-      isModalOpen ||
-      isDropdownOpen ? (
-        <div className=" w-full h-full fixed z-[100]">
-          <Overlay />
-        </div>
-      ) : null}
-
-      {isSearchbarOpen ? (
-        <>
-          <section className=" w-full h-full hidden md:flex items-center justify-center fixed z-[999]">
-            <Searchbar />
-          </section>
-          <div className=" w-full h-full md:flex hidden">
-            <Overlay />
-          </div>
-        </>
-      ) : null}
+      <Overlay isOpen={isMenuOpen} className="md:hidden" />
+      <Overlay
+        isOpen={isAdminSidebarOpen || isEditModalOpen || isModalOpen || isDropdownOpen}
+        className="z-[100]"
+      />
+      {isSearchbarOpen && (
+        <section className=" w-full h-full hidden md:flex items-center justify-center fixed z-[999]">
+          <Searchbar />
+        </section>
+      )}
+      <Overlay isOpen={isSearchbarOpen} className="md:flex hidden" />
       {children}
     </main>
   );

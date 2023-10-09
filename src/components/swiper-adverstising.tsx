@@ -13,8 +13,11 @@ const SwiperAdverstising = () => {
   return (
     <>
       <Swiper
-        navigation={true}
+        navigation
         modules={[Pagination, Navigation]}
+        draggable
+        autoplay={{ delay: 2500 }}
+        loop
         className=" w-full h-full"
       >
         <SwiperSlide>
@@ -24,21 +27,15 @@ const SwiperAdverstising = () => {
                 <h2 className=" lg:text-7xl md:text-5xl text-blue-1 font-[EZO-NA] tracking-wider">
                   ԴՌՆԵՐԻ ԼԱՅՆ ԸՆՏՐԱՆԻ
                 </h2>
-                <p className=" text-sm">
-                  Միայն որակյալ տեսականի հենց Ձեզ համար
-                </p>
+                <p className=" text-sm">Միայն որակյալ տեսականի հենց Ձեզ համար</p>
               </div>
-              <Button
-                className=" w-1/2 mt-14"
-                icon
-                onClick={() => navigate("/products")}
-              >
+              <Button className=" w-1/2 mt-14" icon onClick={() => navigate("/products")}>
                 ՏԵՍականի
               </Button>
             </div>
             <div className=" w-full md:h-[90%] h-[80%] flex items-center justify-center bg-blue-1 relative">
               <div className=" md:w-64 w-48 p-3 absolute z-10">
-                <img src={Door} alt="" className=" w-full h-full" />
+                <img src={Door} alt="" className=" w-full h-full object-contain" />
               </div>
             </div>
           </div>
@@ -50,9 +47,7 @@ const SwiperAdverstising = () => {
                 <h2 className=" lg:text-7xl md:text-5xl text-blue-1 font-[EZO-NA] tracking-wider">
                   ԴՌՆԵՐԻ ԼԱՅՆ ԸՆՏՐԱՆԻ
                 </h2>
-                <p className=" text-sm">
-                  Միայն որակյալ տեսականի հենց Ձեզ համար
-                </p>
+                <p className=" text-sm">Միայն որակյալ տեսականի հենց Ձեզ համար</p>
               </div>
               <Button className=" w-1/2 mt-14" icon>
                 ՏԵՍականի

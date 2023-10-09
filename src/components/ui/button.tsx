@@ -12,7 +12,7 @@ const Button = ({ children, className, icon = false, ...props }: Props) => {
   return (
     <button
       className={cn(
-        ` w-fit bg-blue-1 text-white flex items-center ${
+        ` md:w-fit w-full bg-blue-1 text-white flex items-center ${
           icon ? "justify-between" : "justify-center"
         } gap-x-10 gap-y-2 p-4 uppercase font-normal shadow-md text-sm`,
         className || ""
